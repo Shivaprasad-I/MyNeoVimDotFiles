@@ -47,13 +47,14 @@ function M.setup()
         -- Add C#-specific files to ignore when using Telescope (e.g., ignore build artifacts)
         ".*%.nuget/.*",  -- Exclude from these folders ex: .nuget/
         ".*%obj/.*",
-        ".*%bin/.*",
- 
+        --".*%bin/.*",
+        ----
         "%.dll$",        -- Exclude these file extensions ex: .dll
         "%.exe$",        
         "%.pdb$",       
         "%.obj$",      
-        "%.bin$"     
+        "%.bin$",
+        --"^.*DatabaseConnection/.*"
       },
     },
   })

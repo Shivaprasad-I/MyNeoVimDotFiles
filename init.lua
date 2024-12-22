@@ -18,6 +18,7 @@ require('lazy').setup({
     vim.cmd('colorscheme gruvbox')  -- Apply the theme
     end
   },
+  --For Debugging
 
   {
       'hrsh7th/nvim-cmp', -- The completion plugin
@@ -37,6 +38,11 @@ require('lazy').setup({
     requires = { 'nvim-tree/nvim-web-devicons' },
     config = function()
     require'nvim-tree'.setup({
+      sync_root_with_cwd = true,
+      update_focused_file = {
+        enable = true,
+        update_cwd = true,
+      },
       disable_netrw = true,
       hijack_netrw = true,
       view = { width = 40, side = 'left' },
@@ -105,6 +111,9 @@ require('lazy').setup({
      end
   },
 
+  {'mfussenegger/nvim-dap'},
+  {'rcarriga/nvim-dap-ui'},
+  {'tpope/vim-abolish'},
                       -- nvim-treesitter for syntax highlighting (C# included)
   {
     'nvim-treesitter/nvim-treesitter',
@@ -122,3 +131,9 @@ require('lazy').setup({
 -- Global keymaps
 vim.keymap.set('n', '<Leader>f', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', { noremap = true, silent = true })
+vim.api.nvim_create_autocmd("User",{
+    pattern = "TelescopeFileSelected",
+    callback = function()
+        require 'nvim-tree'.find_file()
+    end,
+})
