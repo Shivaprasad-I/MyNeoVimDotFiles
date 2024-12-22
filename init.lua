@@ -1,4 +1,5 @@
 -- Main configuration file (init.lua)
+clipboard=unnamedplus
 vim.opt.tabstop = 4        -- Number of spaces that a tab character represents
 vim.opt.shiftwidth = 4     -- Number of spaces for each indentation level
 vim.opt.softtabstop = 4    -- Number of spaces to use when hitting Tab or Backspace
@@ -18,6 +19,16 @@ require('lazy').setup({
     end
   },
 
+  {
+      'hrsh7th/nvim-cmp', -- The completion plugin
+     dependencies = {
+       'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+       'hrsh7th/cmp-buffer', -- Buffer source for nvim-cmp
+       'hrsh7th/cmp-path', -- Path source for nvim-cmp
+       'saadparwaiz1/cmp_luasnip', -- Snippet source for nvim-cmp
+       'L3MON4D3/LuaSnip', -- Snippet engine
+     }
+  },
   { 'kyazdani42/nvim-web-devicons' }, --for files/folders icons
   -- nvim-tree setup
   {

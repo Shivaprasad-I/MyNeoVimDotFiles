@@ -22,6 +22,24 @@ function M.setup()
     }
   })
 
+  local cmp = require('cmp')
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body) -- For LuaSnip
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },  -- LSP source
+          { name = 'buffer' },    -- Buffer source
+          { name = 'path' },      -- Path source
+        }),
+      })
   -- Custom Telescope configuration for C# (to ignore certain files)
   require('telescope').setup({
     defaults = {
