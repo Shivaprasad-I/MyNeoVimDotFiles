@@ -21,3 +21,4 @@ require("lazy").setup("plugins")
 
 vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left<CR>', {silent = true})
 vim.keymap.set('n', '<C-b>', ':Neotree toggle<CR>',{silent = true})
+-- Test git changes 
