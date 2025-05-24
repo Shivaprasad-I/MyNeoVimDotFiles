@@ -18,7 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 local opts = {}
 require("vim-options")
 require("lazy").setup("plugins")
+require('strikethrough')
+require('checkbox')
 
 vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left<CR>', {silent = true})
 vim.keymap.set('n', '<C-b>', ':Neotree toggle<CR>',{silent = true})
--- Test git changes 
