@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "omnisharp" },
+                -- ensure_installed = { "csharp_ls" },
             })
         end,
     },
@@ -29,10 +29,33 @@ return {
                 severity_sort = true,
             })
 
+
+                     
+            -- requires dotnet 8 which is not out of 
+             -- lspconfig.csharp_ls.setup({
+			-- 	cmd = { "csharp-ls" },
+			-- 	root_dir = lspconfig.util.root_pattern('*.sln','*.csproj', '.git'), 
+			-- 	capabilities = capabilities,
+			-- 	settings =  {
+			-- 		omniSharp = {
+			-- 			engine = {
+			-- 				projectGuid = {
+			-- 					enable = true,
+			-- 				},
+			-- 				useWorkspaceFolder = {
+			-- 					enable = true,
+			-- 				},
+			-- 			}
+			-- 		}
+			-- 	},
+			-- })
+
+            -- omnisharp working but require dotnet 6 which is not supported in many distros
+            local omnisharp_path = vim.fn.expand("~/.omnisharp/OmniSharp")
             lspconfig.omnisharp.setup({
                 cmd = {
-                    "dotnet",
-                    vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp.dll",
+                    omnisharp_path,
+                    "--languageserver", "--hostPID", tostring(vim.fn.getpid())
                 },
                 root_dir = function(fname)
                     return require("lspconfig.util").root_pattern("*.sln", "*.csproj", ".git")(fname)
@@ -46,7 +69,7 @@ return {
                     client.offset_encoding = "utf-16"
                     return true
                 end,
-            })
+            }) 
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             --vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

@@ -9,19 +9,14 @@ return{
         local filetree = require("neo-tree");
         local options = {
             window = {
-                position = "float",
-                popup = {
-                    size = {
-                        width = "60%",
-                        height = "80%",
-                    },
-                    border = "rounded",
-                },
+                mappings = {
+                    ["<C-v>"] = "open_vsplit",
+                }
             },
         };
         filetree.setup(options);
-        vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal float<CR>', {silent = true})
-        -- vim.keymap.set('n', '<C-h>', ':Neotree close<CR>',{silent = true})
+        vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left<CR>', {silent = true})
+        vim.keymap.set('n', '<C-h>', ':Neotree close<CR>',{silent = true})
         vim.keymap.set('n', '<leader>gs', ':Neotree float git_status<CR>', {silent = true})
     end 
 }

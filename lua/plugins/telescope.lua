@@ -16,8 +16,8 @@ return
         config = function()
             local fzf = require("fzf-lua")
             fzf.setup(opts)
-            -- vim.keymap.set('n', '<C-p>', fzf.files, {})
-            -- vim.keymap.set('n', '<leader>f', fzf.live_grep, {})
+            vim.keymap.set('n', '<C-p>', fzf.files, {})
+            vim.keymap.set('n', '<leader>f', fzf.live_grep, {})
         end
     },
     {
@@ -34,8 +34,8 @@ return
         },
         config = function()
             local builtIn = require("telescope.builtin")
-            vim.keymap.set('n', '<C-p>', builtIn.find_files, {})
-            vim.keymap.set('n', '<leader>f', builtIn.live_grep, {})
+            -- vim.keymap.set('n', '<C-p>', builtIn.find_files, {})
+            -- vim.keymap.set('n', '<leader>f', builtIn.live_grep, {})
             local telescope = require("telescope")
             telescope.setup({
                 extensions = {
