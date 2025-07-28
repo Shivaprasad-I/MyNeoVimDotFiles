@@ -34,6 +34,7 @@ return
         },
         config = function()
             local builtIn = require("telescope.builtin")
+            vim.keymap.set('n', '<leader>b', builtIn.buffers, { desc = "Search buffers" })
             -- vim.keymap.set('n', '<C-p>', builtIn.find_files, {})
             -- vim.keymap.set('n', '<leader>f', builtIn.live_grep, {})
             local telescope = require("telescope")

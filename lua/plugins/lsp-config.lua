@@ -22,14 +22,16 @@ return {
             local telescope = require("telescope.builtin")
 
             vim.diagnostic.config({
-                virtual_text = true,
+                virtual_text = false,
                 signs = true,
                 underline = true,
                 update_in_insert = false,
                 severity_sort = true,
             })
-
-
+            vim.keymap.set('n', '<leader>d', function()
+                vim.diagnostic.open_float(nil, { border = "rounded" })
+            end, { desc = "Show diagnostic" })
+ 
                      
             -- requires dotnet 8 which is not out of 
              -- lspconfig.csharp_ls.setup({
@@ -58,7 +60,7 @@ return {
                     "--languageserver", "--hostPID", tostring(vim.fn.getpid())
                 },
                 root_dir = function(fname)
-                    return require("lspconfig.util").root_pattern("*.sln", "*.csproj", ".git")(fname)
+                    return require("lspconfig.util").root_pattern(".sln", ".csproj", ".git")(fname)
                     or vim.fn.getcwd()
                 end,
                 capabilities = capabilities,
