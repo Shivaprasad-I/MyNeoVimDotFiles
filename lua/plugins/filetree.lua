@@ -15,8 +15,8 @@ return{
             },
         };
         filetree.setup(options);
-        vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left<CR>', {silent = true})
+        vim.keymap.set('n', '<leader>ee', ':Neotree filesystem reveal left<CR>', {silent = true})
         vim.keymap.set('n', '<C-h>', ':Neotree close<CR>',{silent = true})
-        vim.keymap.set('n', '<leader>gs', ':Neotree float git_status<CR>', {silent = true})
+        -- vim.keymap.set('n', '<C-g>', ':Neotree float git_status<CR>', {silent = true})
     end 
 }
