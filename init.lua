@@ -24,3 +24,12 @@ require("vim-options")
 require("lazy").setup("plugins")
 require('checkbox')
 
+-- to supress the initial error for gd,gi functions temporary fix
+local original_notify = vim.notify
+vim.notify = function(msg, level, opts)
+  if type(msg) == "string" and msg:match("position_encoding param is required") then
+    return
+  end
+  original_notify(msg, level, opts)
+end
+
