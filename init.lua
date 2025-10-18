@@ -20,9 +20,10 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local opts = {}
-require("vim-options")
+require("core.vim-options")
 require("lazy").setup("plugins")
-require('checkbox')
+require('core.checkbox')
+require('core.lsp')
 
 -- to supress the initial error for gd,gi functions temporary fix
 local original_notify = vim.notify

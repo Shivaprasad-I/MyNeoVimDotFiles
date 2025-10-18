@@ -1,4 +1,6 @@
-return {
+return {}
+-- old file
+--[[ return {
     {
         "williamboman/mason.nvim",
         config = function()
@@ -9,7 +11,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "omnisharp" },
+                -- ensure_installed = { "omnisharp" },
             })
         end,
     },
@@ -18,7 +20,7 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            capabilities.offsetEncoding = "utf-16"
+            capabilities.offsetEncoding = {"utf-16"}
             local telescope = require("telescope.builtin")
 
             vim.diagnostic.config({
@@ -36,10 +38,6 @@ return {
                 vim.diagnostic.open_float(nil, { border = "rounded" })
             end, { desc = "Show diagnostic" })
 
-
-            local omnisharp_path = vim.fn.expand("~/.omnisharp/OmniSharp")
-
-            local lspconfig = require('lspconfig')
 
             lspconfig.omnisharp.setup({
                 cmd = {
@@ -83,4 +81,4 @@ return {
         end,
     },
 }
-
+]]--
