@@ -6,7 +6,9 @@ return {
         vim.fn.expand("~") .. "/.omnisharp/OmniSharp.dll",
         "-z",
         "--languageserver",
-        "--hostPID", tostring(vim.fn.getpid()),
+        "--hostPID", 
+        tostring(vim.fn.getpid()),
+        "--no-launch-browser",
     },
     root_markers = { ".sln", ".csproj", ".git" },
     filetypes = { "cs", "vb" },
@@ -15,6 +17,8 @@ return {
             enableRoslynAnalyzers = true,
             organizeImportsOnFormat = true,
             enableImportCompletion = true,
+            enableFormatting = true,
+            enableCodeActions = true
         },
     },
 }
