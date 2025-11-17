@@ -3,20 +3,12 @@ return
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            files = {
-                -- Ignore similar to Telescope's file_ignore_patterns
-                fd_opts = [[--color=never --type f --hidden --exclude .git --exclude obj --exclude bin --exclude *.dll --exclude *.exe --exclude *.pdb --exclude *.obj --exclude *.bin --exclude *.nuget]],
-            },
-            grep = {
-                -- This applies to `live_grep`
-                rg_opts = [[--hidden --column --line-number --no-heading --color=always --smart-case --ignore-file ~/.rgignore]],
-            },
-        },
         config = function()
             local fzf = require("fzf-lua")
-            fzf.setup(opts)
-            vim.keymap.set('n', '<C-p>', fzf.files, {})
+            fzf.setup({
+                winopts = { previewer = false }
+            })
+            vim.keymap.set('n', '<C-p>', fzf.git_files, {})
             vim.keymap.set('n', '<leader>f', fzf.live_grep, {})
         end
     },
