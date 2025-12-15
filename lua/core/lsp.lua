@@ -3,10 +3,10 @@ vim.lsp.enable({
     "clangd"
 })
 vim.diagnostic.config({
-    virtual_lines = true,
+    virtual_text = {spacing = 4},
     underline = true,
     update_in_insert = false,
-    severiaty_sort = true,
+    severity_sort = true,
     float = {
         border = "rounded",
         source = true
@@ -20,6 +20,10 @@ vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 vim.keymap.set({ "n", "v" }, "gr", ui.lsp_references, {})
 vim.keymap.set('n', '<leader>en', "<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>", { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ep', "<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>", { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>d', function()
+    vim.diagnostic.open_float(nil, { border = "rounded" })
+end, { desc = "Show diagnostic" })
 
 -- below will change with change in the UI provider
 vim.keymap.set('n', "gm", function()
