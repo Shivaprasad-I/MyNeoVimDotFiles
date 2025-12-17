@@ -33,4 +33,5 @@ vim.keymap.set("x", "<leader>r", function()
   -- Open the command-line with the substitution pre-filled
   vim.api.nvim_feedkeys(":" .. cmd, "n", false)
 end, { desc = "Search and replace visual selection with confirmation" })
-
+-- Exit terminal mode with Esc
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
