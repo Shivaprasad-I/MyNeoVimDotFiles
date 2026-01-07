@@ -1,5 +1,4 @@
 vim.lsp.enable({
-    "omnisharp",
     "clangd"
 })
 vim.diagnostic.config({
