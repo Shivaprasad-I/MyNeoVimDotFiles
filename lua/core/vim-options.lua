@@ -10,6 +10,10 @@ vim.o.ignorecase = true;
 vim.o.smartcase = true;
 vim.opt.splitright = true;
 vim.opt.conceallevel = 2
+--default horizonal scroll enabled
+vim.opt.wrap = false
+vim.opt.sidescroll = 1
+vim.opt.sidescrolloff = 8
 
 local modes = {'n', 'v'};
 local options = { noremap = true, silent = true };

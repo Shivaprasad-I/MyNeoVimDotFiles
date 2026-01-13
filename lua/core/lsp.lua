@@ -1,5 +1,5 @@
 vim.lsp.enable({
-    "clangd"
+    "clangd",
     "ts_ls"
 })
 vim.diagnostic.config({
