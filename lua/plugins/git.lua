@@ -38,6 +38,7 @@ return {
       -- vim.keymap.set({ 'n', 'v' }, '[c', gitsigns.prev_hunk, { noremap = true, silent = true })
       vim.keymap.set({ 'n', 'v' }, '<leader>gs', gitsigns.stage_hunk, { noremap = true, silent = true })
       vim.keymap.set({ 'n', 'v' }, '<leader>gr', gitsigns.reset_hunk, { noremap = true, silent = true })
+      vim.keymap.set({ 'n', 'v' }, '<leader>gb', gitsigns.blame, { noremap = true, silent = true })
     end
   },
   {
