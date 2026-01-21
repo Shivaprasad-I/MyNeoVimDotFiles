@@ -14,6 +14,7 @@ vim.opt.conceallevel = 2
 vim.opt.wrap = false
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 8
+vim.opt.cursorline = true
 
 local modes = {'n', 'v'};
 local options = { noremap = true, silent = true };

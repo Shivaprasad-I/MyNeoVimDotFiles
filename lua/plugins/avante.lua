@@ -10,18 +10,18 @@ return {
         -- lazy = true,
         version = false,
         opts = {
+            -- Dummy change to test popup confirmation UI
             windows = { width = 40 },
             provider = "copilot",
             mode = "agentic",
             providers = {
                 copilot = {
-                    model = "claude-sonnet-4.5",
+                    model = "gpt-4.1",
                     auto_select_model = false,
                 },
             },
-            hints = { enabled = true },
             selector = {
-                provider = "telescope",
+                provider = "native",
             },
             behaviour = {
                 auto_suggestions = false,
@@ -32,6 +32,7 @@ return {
                 enable_token_counting = false,
                 auto_approve_tool_permissions = false,
                 enable_fastapply = false,
+                confirmation_ui_style = "popup",
             },
             selection = {
                 hint_display = "none"
@@ -43,7 +44,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
-            "nvim-telescope/telescope.nvim",
+            "ibhagwan/fzf-lua",
             "stevearc/dressing.nvim",
             "nvim-tree/nvim-web-devicons",
             "nvim-treesitter/nvim-treesitter",
@@ -51,6 +52,13 @@ return {
             {
                 'MeanderingProgrammer/render-markdown.nvim',
                 ft = { "markdown", "Avante" },
+                config = function()
+                    require("render-markdown").setup({
+                        checkbox = {
+                            enabled = true,
+                        },
+})
+                end,
             },
         },
     },
