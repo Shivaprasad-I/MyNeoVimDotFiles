@@ -21,7 +21,12 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
 require("core.vim-options")
-require("lazy").setup("plugins")
+require("lazy").setup({
+    spec = {
+        { import = "plugins" },
+    },
+    change_detection = { notify = false }
+})
 require('core.checkbox')
 require('core.lsp')
 
