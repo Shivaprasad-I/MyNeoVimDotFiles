@@ -21,6 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
 require("core.vim-options")
+require("core.templates")
 require("lazy").setup({
     spec = {
         { import = "plugins" },
