@@ -24,9 +24,12 @@ vim.keymap.set(modes, '<leader>p', '"+p', options)
 -- below is only for VSCode like setup I'll be shifting to harpoon or snipe in future
 -- as remapping tab will break <C-i>
 vim.keymap.set(modes, '<leader>l', ':tabnext<CR>', options)
+vim.keymap.set(modes, '<leader>h', ':tabprevious<CR>', options)
 vim.keymap.set(modes, '<leader>t', ':tabnew<CR>', options)
 vim.keymap.set(modes, '<leader>x', ':q!<CR>', options)
 vim.keymap.set('n', '<Esc>', "<cmd>nohlsearch<CR>", options)
+
+-- command for select replace
 vim.keymap.set("x", "<leader>r", function()
   -- Yank the visual selection
   vim.cmd('normal! "vy')
@@ -38,7 +41,11 @@ vim.keymap.set("x", "<leader>r", function()
   -- Open the command-line with the substitution pre-filled
   vim.api.nvim_feedkeys(":" .. cmd, "n", false)
 end, { desc = "Search and replace visual selection with confirmation" })
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+
+--terminal realted configs
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+
+-- text wrap and unwrap
 vim.keymap.set('n', '<leader>uw', function()
     local is_wrapping = vim.opt_local.wrap:get()
     if is_wrapping then

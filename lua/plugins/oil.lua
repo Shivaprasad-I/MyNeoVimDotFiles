@@ -16,6 +16,7 @@ return {
                 ["<C-p>"] = false,       -- Disable the default
                 ["<C-h>"] = "actions.preview", -- Assign preview to a new key
             },
+            skip_confirm_for_simple_edits = true,
         });
         vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory in Oil" })
     end
