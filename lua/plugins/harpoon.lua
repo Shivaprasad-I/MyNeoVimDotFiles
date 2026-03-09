@@ -5,8 +5,13 @@ return {
   config = function()
     local harpoon = require("harpoon")
 
-    -- REQUIRED for harpoon2
-    harpoon:setup()
+    harpoon:setup({
+        default = {
+            display = function(list_item)
+                return vim.fn.fnamemodify(list_item.value, ":t")
+            end,
+        },
+    })
 
     -- Keymaps
     vim.keymap.set("n", "<leader>a", function()
@@ -22,5 +27,6 @@ return {
     vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
     vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
     vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+    vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
   end,
 }

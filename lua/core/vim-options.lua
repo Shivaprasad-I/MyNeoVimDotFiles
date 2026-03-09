@@ -58,3 +58,21 @@ vim.keymap.set('n', '<leader>uw', function()
         print("Wrap mode")
     end
 end, { desc = "Toggle Wrap and Smooth Scroll" })
+
+-- change tabs to show numbers instead of the buffer name 
+vim.o.showtabline = 2
+
+vim.o.tabline = "%!v:lua.CustomTabLine()"
+
+function _G.CustomTabLine()
+  local s = ""
+  local tabs = vim.fn.tabpagenr("$")
+
+  for i = 1, tabs do
+    local hl = (i == vim.fn.tabpagenr()) and "%#TabLineSel#" or "%#TabLine#"
+    s = s .. hl .. "%" .. i .. "T Tab " .. i .. " "
+  end
+
+  s = s .. "%#TabLineFill#%T"
+  return s
+end
