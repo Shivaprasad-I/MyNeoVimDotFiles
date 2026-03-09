@@ -21,7 +21,11 @@ return {
                 },
             },
             selector = {
-                provider = "native",
+                provider = "snacks",
+                provider_opts = { layout = { preset = "select" } },
+            },
+            input = {
+                provider = "snacks",
             },
             behaviour = {
                 auto_suggestions = false,
@@ -44,7 +48,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
-            "ibhagwan/fzf-lua",
+            "folke/snacks.nvim",
             "stevearc/dressing.nvim",
             "nvim-tree/nvim-web-devicons",
             "nvim-treesitter/nvim-treesitter",

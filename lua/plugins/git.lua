@@ -54,6 +54,9 @@ return {
           })
           vim.keymap.set('n', '<C-g>', function() neogit.open() end, { noremap = true, silent = true, desc = 'Toggle Diffview' });
       end,
+  },
+  {
+      "tpope/vim-fugitive",
   }
 }
 
