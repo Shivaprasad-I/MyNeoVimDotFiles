@@ -80,3 +80,6 @@ end
 -- quick fix list navigation
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next Quickfix Item" })
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Previous Quickfix Item" })
+
+-- open git
+vim.keymap.set("n", "<C-g>", "<cmd>tab Git<CR>", { desc = "Git Status in New Tab" })
