@@ -61,7 +61,7 @@ end, { desc = "Toggle Wrap and Smooth Scroll" })
 
 -- change tabs to show numbers instead of the buffer name 
 vim.o.showtabline = 2
-
+vim.opt.showtabline = 1
 vim.o.tabline = "%!v:lua.CustomTabLine()"
 
 function _G.CustomTabLine()
@@ -76,3 +76,7 @@ function _G.CustomTabLine()
   s = s .. "%#TabLineFill#%T"
   return s
 end
+
+-- quick fix list navigation
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next Quickfix Item" })
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Previous Quickfix Item" })
