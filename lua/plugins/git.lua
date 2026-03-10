@@ -42,18 +42,7 @@ return {
     end
   },
   {
-      "TimUntersberger/neogit",
-      dependencies = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
-      config = function()
-          local neogit = require("neogit"); 
-          neogit.setup({
-              -- your options here, or leave empty for defaults
-              integrations = {
-                  diffview = true -- if you want diffview integration
-              }
-          })
-          vim.keymap.set('n', '<C-g>', function() neogit.open() end, { noremap = true, silent = true, desc = 'Toggle Diffview' });
-      end,
+      "tpope/vim-fugitive",
   }
 }
 
