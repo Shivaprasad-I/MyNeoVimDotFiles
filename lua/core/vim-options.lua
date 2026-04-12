@@ -83,3 +83,4 @@ vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Previous Quickfix Item" })
 
 -- open git
 vim.keymap.set("n", "<C-g>", "<cmd>tab Git<CR>", { desc = "Git Status in New Tab" })
+require("vim._core.ui2").enable({});
